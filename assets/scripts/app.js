@@ -1,4 +1,6 @@
 // Learning debugging
+// Learning how to debug in Chrome
+
 const defaultResult = 0;
 let currentResult = defaultResult;
 let logEntries = [];
