@@ -22,31 +22,41 @@ function writeToLog(
   operationNumber,
   newResult
 ) {
-    const logEntry = {
-        operation: operationIdentifier,
-        previousResult: prevResult,
-        number: operationNumber,
-        result: newResult
-    };
-    logEntries.push(logEntry);
-    console.log(logEntries);
+  const logEntry = {
+    operation: operationIdentifier,
+    previousResult: prevResult,
+    number: operationNumber,
+    result: newResult,
+  };
+  logEntries.push(logEntry);
+  console.log(logEntries);
 }
 
 function calculateResult(calculationType) {
+  if (
+    calculationType !== 'ADD' &&
+    calculationType !== 'SUBTRACT' &&
+    calculationType !== 'MULTIPLY' &&
+    calculationType !== 'DIVIDE' || 
+    !enteredNumber
+  ) {
+    return;
+  }
+
   const enteredNumber = getUserInput();
   const initialResult = currentResult;
   let mathOperator;
 
-  if(calculationType === 'ADD') {
+  if (calculationType === 'ADD') {
     currentResult += enteredNumber;
     mathOperator = '+';
-  } else if(calculationType === 'SUBTRACT') {
+  } else if (calculationType === 'SUBTRACT') {
     currentResult -= enteredNumber;
     mathOperator = '-';
-  } else if(calculationType === 'MULTIPLY') {
+  } else if (calculationType === 'MULTIPLY') {
     currentResult *= enteredNumber;
     mathOperator = '*';
-  } else {
+  } else if (calculateType === 'DIVIDE') {
     currentResult /= enteredNumber;
     mathOperator = '/';
   }
