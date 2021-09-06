@@ -29,7 +29,6 @@ function writeToLog(
     result: newResult,
   };
   logEntries.push(logEntry);
-  console.log(logEntries);
 }
 
 function calculateResult(calculationType) {
@@ -65,23 +64,8 @@ function calculateResult(calculationType) {
   writeToLog(calculationType, initialResult, enteredNumber, currentResult);
 }
 
-function add() {
-  calculateResult('ADD');
-}
 
-function subtract() {
-  calculateResult('SUBTRACT');
-}
-
-function multiply() {
-  calculateResult('MULTIPLY');
-}
-
-function divider() {
-  calculateResult('DIVIDE');
-}
-
-addBtn.addEventListener('click', add);
-subtractBtn.addEventListener('click', subtract);
-multiplyBtn.addEventListener('click', multiply);
-divideBtn.addEventListener('click', divider);
+addBtn.addEventListener('click', calculateResult.bind(this, 'ADD'));
+subtractBtn.addEventListener('click', calculateResult.bind(this, 'SUBTRACT'));
+multiplyBtn.addEventListener('click', calculateResult.bind(this, 'MULTIPLY'));
+divideBtn.addEventListener('click', calculateResult.bind(this, 'DIVIDE'));
